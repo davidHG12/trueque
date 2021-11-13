@@ -31,7 +31,7 @@ function App() {
               <Route exact path="/signup" element={<Signup/>} />
               <Route exact path="/login" element={<Login/>} />
               <Route exact path="/forgot-password" element={<ForgotPassword/>} />
-              <Route path='/Inicio' element={<Inicio/>}/>
+              <Route exact path='/Inicio' element={<Inicio/>}/>
             </Routes>
           </AuthProvider>
 

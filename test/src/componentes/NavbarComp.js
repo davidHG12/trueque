@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import {Navbar, Nav, NavDropdown, Form, FormControl, Button, Container} from 'react-bootstrap'
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
 import { FaRegHandshake } from 'react-icons/fa';
 import { IconContext } from "react-icons";
+import { Link, useNavigate } from "react-router-dom"
 
-export default class NavbarComp extends Component {
-    render() {
-        return (
-            <div>
+
+export default function NavbarComp() {
+    const navigate = useNavigate()
+    return (
+        <div>
                 <Navbar bg="primary" variant="dark">   
                 <Container fluid>
                 <Navbar.Brand href="#">
@@ -41,13 +42,13 @@ export default class NavbarComp extends Component {
                     className="me-2"
                     aria-label="Search"
                     />
-                    <Button variant="outline-light">Buscar</Button>
                 </Form>
+                <Button variant="outline-light" onClick={() =>navigate("/login")}>Iniciar sesión</Button>
                 </Navbar.Collapse>
             </Container>
             </Navbar>
             </div>
-        )
-    }
+    )
 }
+
 
