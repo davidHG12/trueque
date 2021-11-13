@@ -14,14 +14,20 @@ import Inicio from "./Inicio"
 
 function App() {
   return(
-    <Router>
-    <div>
-      <NavbarComp/>
- 
-    <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
-      <div className="w-100" style={{ maxWidth: "400px" }}>
+    
+          <div>
+          <Router>
           <AuthProvider>
-            <Routes>
+          <NavbarComp/>
+          <div> 
+          <Routes>
+            <Route exact path='/Inicio' element={<Inicio/>}/>  
+          </Routes> 
+          </div> 
+ 
+          <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+          <div className="w-100" style={{ maxWidth: "400px" }}>
+          <Routes>      
               <Route exact path='/' element={<PrivateRoute/>}>
                 <Route exact path='/' element={<Dashboard/>}/>
               </Route>
@@ -31,14 +37,15 @@ function App() {
               <Route exact path="/signup" element={<Signup/>} />
               <Route exact path="/login" element={<Login/>} />
               <Route exact path="/forgot-password" element={<ForgotPassword/>} />
-              <Route exact path='/Inicio' element={<Inicio/>}/>
-            </Routes>
+              
+          </Routes>
+           </div>
+          </Container> 
           </AuthProvider>
-
-      </div>
-    </Container>    
-    </div>
-            </Router>
+           </Router>
+          </div>
+        
+     
     
   ) 
 }
