@@ -17,7 +17,7 @@ export default function Login() {
             setError("")
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
-            navigate("/")
+            navigate("/inicio")
         }catch{
             setError("Fallo en el inicio de sesión")
         }

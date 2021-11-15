@@ -21,9 +21,8 @@ function App() {
           <NavbarComp/>
           <div> 
           <Routes>
-          <Route exact path='/' element={<PrivateRoute/>}>
-                <Route exact path='/' element={<Inicio/>}/>
-              </Route>  
+                <Route exact path='/inicio' element={<Inicio/>}/>
+                <Route exact path='/' element={<Inicio/>}/> 
           </Routes> 
           </div> 
  
