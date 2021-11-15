@@ -1,5 +1,6 @@
 import React from 'react'
 import Checkbox from "react-custom-checkbox"
+import * as Icon from "react-icons/fi";
 
 const Filter = (props) => {
     return (
@@ -7,14 +8,27 @@ const Filter = (props) => {
         <div className = "checkbox" >
             <br></br>
             <Checkbox
-                checked={true}
-                borderColor="#12BBFA"
-                borderRadius={3}
-                size={18}
-                checked={props.value}
-                onChange={props.onChange}
-                label={props.label}
-            />
+        icon={
+          <div
+            style={{
+              display: "flex",
+              flex: 1,
+              backgroundColor: "#0d6efd",
+              alignSelf: "stretch",
+            }}
+          >
+            <Icon.FiCheck color="white" size={20} />
+          </div>
+        }
+        borderColor="#0d6efd"
+        // borderWidth={0}
+        borderRadius={20}
+        style={{ overflow: "hidden" }}
+        size={20}
+        checked={props.value}
+        onChange={props.onChange}
+        label={props.label}
+      />
         </div>
     )
 }

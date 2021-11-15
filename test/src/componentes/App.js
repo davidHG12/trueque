@@ -21,7 +21,9 @@ function App() {
           <NavbarComp/>
           <div> 
           <Routes>
-            <Route exact path='/Inicio' element={<Inicio/>}/>  
+          <Route exact path='/' element={<PrivateRoute/>}>
+                <Route exact path='/' element={<Inicio/>}/>
+              </Route>  
           </Routes> 
           </div> 
  
@@ -29,11 +31,9 @@ function App() {
           <div className="w-100" style={{ maxWidth: "400px" }}>
           <Routes>      
               <Route exact path='/' element={<PrivateRoute/>}>
-                <Route exact path='/' element={<Dashboard/>}/>
-              </Route>
-              <Route exact path='/' element={<PrivateRoute/>}>
                 <Route exact path='/update-profile' element={<UpdateProfile/>}/>
               </Route>
+              <Route exact path='/dashboard' element={<Dashboard/>}/>
               <Route exact path="/signup" element={<Signup/>} />
               <Route exact path="/login" element={<Login/>} />
               <Route exact path="/forgot-password" element={<ForgotPassword/>} />

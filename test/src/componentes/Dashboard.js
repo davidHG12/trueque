@@ -1,29 +1,16 @@
 import React, {useState} from 'react'
-import { Card, Button, Alert } from "react-bootstrap"
+import { Card, Alert } from "react-bootstrap"
 import { useAuth } from '../contexto/AuthContext'
-import { Link, useNavigate } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 
 export default function Dashboard() {
 
-    const [error, setError] = useState("")
-    const {currentUser, logout} = useAuth()
-    const navigate = useNavigate()
-
-    async function handlelogout(){
-        setError("")
-
-        try{
-            await logout()
-            navigate("/login")
-
-        } catch {
-            setError("Fallo en el cierre de sesión")
-        }
-    }
+    const {error} = useState("")
+    const {currentUser} = useAuth()
 
     return (
         <>
-            <Card>
+        {currentUser ? <Card>
                 <Card.Body>
                 <h2 className="text-center mb-4">Perfil</h2>
                 {error && <Alert variant="danger">{error}</Alert>}
@@ -32,12 +19,8 @@ export default function Dashboard() {
                     Actualizar perfil
                 </Link>
                 </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
-            <Button variant="link" onClick={handlelogout}>
-                Cerrar Sesión
-            </Button>    
-            </div>  
+            </Card>: <Navigate to="/inicio"/>}
+            
         </>
     )
 }

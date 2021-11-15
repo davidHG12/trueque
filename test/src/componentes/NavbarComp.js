@@ -1,12 +1,28 @@
-import React, { Component } from 'react'
-import {Navbar, Nav, NavDropdown, Form, FormControl, Button, Container} from 'react-bootstrap'
+import React, {useState} from 'react'
+import {Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Alert} from 'react-bootstrap'
 import { FaRegHandshake } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 import { Link, useNavigate } from "react-router-dom"
+import {useAuth} from '../contexto/AuthContext'
 
 
 export default function NavbarComp() {
     const navigate = useNavigate()
+    const [error, setError] = useState("")
+    const {currentUser, logout} = useAuth()
+
+    async function handlelogout(){
+        setError("")
+
+        try{
+            await logout()
+            navigate("/login")
+
+        } catch {
+            setError("Fallo en el cierre de sesión")
+        }
+    }
+    
     return (
         <div>
                 <Navbar bg="primary" variant="dark">   
@@ -26,6 +42,7 @@ export default function NavbarComp() {
                 >
                     <Nav.Link as={Link} to={"/Inicio"}>Inicio</Nav.Link>
                     <Nav.Link href="#action2">Emprendimientos</Nav.Link>
+                    <Nav.Link href="#action2">Universidades</Nav.Link>
                     <NavDropdown title="Utilidades" id="navbarScrollingDropdown">
                     <NavDropdown.Item href="#action3">Noticias</NavDropdown.Item>
                     <NavDropdown.Item href="#action4">Bolsa de valores</NavDropdown.Item>
@@ -43,7 +60,13 @@ export default function NavbarComp() {
                     aria-label="Search"
                     />
                 </Form>
-                <Button variant="outline-light" onClick={() =>navigate("/login")}>Iniciar sesión</Button>
+                    {currentUser ? <Nav>
+                    <NavDropdown id="navbarScrollingDropdown">
+                    {error && <Alert variant="danger">{error}</Alert>}
+                    <NavDropdown.Item onClick={() =>navigate("/dashboard")}>{currentUser.email}</NavDropdown.Item>
+                    <NavDropdown.Item onClick={handlelogout}>Cerrar sesión</NavDropdown.Item>
+                    </NavDropdown>
+                    </Nav>:<Button variant="outline-light" onClick={() =>navigate("/login")}>Iniciar sesión</Button>}
                 </Navbar.Collapse>
             </Container>
             </Navbar>
