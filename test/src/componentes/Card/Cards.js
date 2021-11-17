@@ -8,19 +8,19 @@ import image3 from './assets/image3.jpg'
 const cards = [
   {
     id: 1,
-    title: "Title on deck",
+    title: "Articulo",
     image: image1,
     url: "",
   },
   {
     id: 2,
-    title: "Title on deck",
+    title: "Articulo",
     image: image2,
     url: "",
   },
   {
     id: 3,
-    title: "Title on deck",
+    title: "Articulo",
     image: image3,
     url: "",
   },
@@ -32,13 +32,13 @@ const cards = [
   },
   {
     id: 5,
-    title: "Title on deck",
+    title: "Articulo",
     image: image2,
     url: "",
   },
   {
     id: 6,
-    title: "Title on deck",
+    title: "Articulo",
     image: image3,
     url: "",
   }

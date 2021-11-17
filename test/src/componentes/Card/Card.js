@@ -5,7 +5,7 @@ import "./card.css";
 
 function Card({ imageSource, title, text, url }) {
   return (
-    <div className="card text-center bg-dark animate__animated animate__fadeInUp" style={{ display:"flex", width: "380px" }}>
+    <div className="card text-center animate__animated animate__fadeInUp" style={{ display:"flex", width: "380px" }}>
       <div className="overflow">
         <img src={imageSource} alt="a wallpaper" className="card-img-top" style={{ width: "400px" }}/>
       </div>
@@ -22,7 +22,7 @@ function Card({ imageSource, title, text, url }) {
           className="btn btn-outline-secondary border-0"
           rel="noreferrer"
         >
-          Go to {title}
+          Ver más {title}
         </a>
       </div>
     </div>
