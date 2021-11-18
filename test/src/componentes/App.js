@@ -13,7 +13,9 @@ import NavbarComp from "./NavbarComp"
 import Inicio from "./Inicio"
 import Fetch from "./links/Fetch"
 import ArticleDescrip from "./articleDescrip/ArticleDescrip"
+import PaginaNoticias from "./PaginaNoticias"
 import Universidades from "./Universidades"
+import PaginaCripto from "./PaginaCripto"
 
 function App() {
 
@@ -35,7 +37,10 @@ function App() {
                 }
               
               <Route exact path="/article/:id" element={<ArticleDescrip info={info}/>} />
+                <Route exact path='/paginaNoticias' element={<PaginaNoticias/>}/>
+                <Route exact path='/paginaCripto' element={<PaginaCripto/>}/>
                 <Route exact path='/universidades' element={<Universidades/>}/>
+                
           </Routes> 
           </div> 
             
@@ -56,6 +61,7 @@ function App() {
           </AuthProvider>
            </Router>
           </div>
+
         
      
     

@@ -46,8 +46,8 @@ export default function NavbarComp({setLogin}) {
                     <Nav.Link href="#action2">Emprendimientos</Nav.Link>
                     <Nav.Link as={Link} to={"/Universidades"}>Universidades</Nav.Link>
                     <NavDropdown title="Utilidades" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action3">Noticias</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">Bolsa de valores</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() =>navigate("/paginaNoticias")}>Noticias</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() =>navigate("/paginaCripto")}>Criptomonedas</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action5">
                         Contactenos
