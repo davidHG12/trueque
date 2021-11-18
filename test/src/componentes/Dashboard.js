@@ -21,6 +21,8 @@ export default function Dashboard() {
                 </Card.Body>
             </Card>: <Navigate to="/inicio"/>}
             
+        
+            
         </>
     )
 }

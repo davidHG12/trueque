@@ -1,0 +1,31 @@
+.add__article{
+    position: fixed;
+    right: 25px;
+    bottom: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgb(13 110 253);
+    box-shadow: -3px 2px 7px 0px rgb(0 0 0 / 40%);
+}
+.icon-add{
+    color: white;
+    font-size: 30px !important;
+}
+.form{
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+}
+.section__form{
+    height: 70vh;
+}
+.bnt-add{
+    width: 20%;
+    display: block;
+    margin: auto;
+}
+
+.error{
+    border: 1px solid red;
+}
