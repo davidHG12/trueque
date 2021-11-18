@@ -8,20 +8,28 @@ const checkboxes = [
         key: "book"
     },
     {
-        name: "Elctronica",
+        name: "Electrónica",
         key: "electronic"
     },
     {
-        name: "Culinaria",
+        name: "Gastromía",
         key: "cook"
     },
     {
-        name: "Elctronica",
-        key: "electronic"
+        name: "Deportes",
+        key: "sports"
     },
     {
-        name: "Culinaria",
-        key: "cook"
+        name: "Informática",
+        key: "inf"
+    },
+    {
+        name: "Clases",
+        key: "class"
+    },
+    {
+        name: "Ciencia",
+        key: "science"
     }
 ]
 
