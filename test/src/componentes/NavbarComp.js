@@ -25,6 +25,7 @@ export default function NavbarComp({setLogin}) {
     }
     
     return (
+
         <div>
                 <Navbar bg="primary" variant="dark">   
                 <Container fluid>
@@ -43,7 +44,7 @@ export default function NavbarComp({setLogin}) {
                 >
                     <Nav.Link as={Link} to={"/Inicio"}>Inicio</Nav.Link>
                     <Nav.Link href="#action2">Emprendimientos</Nav.Link>
-                    <Nav.Link href="#action2">Universidades</Nav.Link>
+                    <Nav.Link as={Link} to={"/Universidades"}>Universidades</Nav.Link>
                     <NavDropdown title="Utilidades" id="navbarScrollingDropdown">
                     <NavDropdown.Item href="#action3">Noticias</NavDropdown.Item>
                     <NavDropdown.Item href="#action4">Bolsa de valores</NavDropdown.Item>
@@ -53,6 +54,8 @@ export default function NavbarComp({setLogin}) {
                     </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
+
+
                 <Form className="d-flex">
                     <FormControl
                     type="search"
@@ -74,5 +77,6 @@ export default function NavbarComp({setLogin}) {
             </div>
     )
 }
+
 
 

@@ -13,6 +13,8 @@ import NavbarComp from "./NavbarComp"
 import Inicio from "./Inicio"
 import Fetch from "./links/Fetch"
 import ArticleDescrip from "./articleDescrip/ArticleDescrip"
+import Universidades from "./Universidades"
+
 function App() {
 
   const [info, setInfo] = useState([])
@@ -33,9 +35,8 @@ function App() {
                 }
               
               <Route exact path="/article/:id" element={<ArticleDescrip info={info}/>} />
-  
-
-          </Routes>
+                <Route exact path='/universidades' element={<Universidades/>}/>
+          </Routes> 
           </div> 
             
           <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
