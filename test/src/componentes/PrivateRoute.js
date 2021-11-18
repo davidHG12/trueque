@@ -4,8 +4,7 @@ import {useAuth} from '../contexto/AuthContext'
 
 export default function PrivateRoute() {
     const { currentUser } = useAuth() 
-        // If authorized, return an outlet that will render child elements
-        // If not, return element that will navigate to login page
+
         return currentUser ? <Outlet /> : <Navigate to="/inicio" />;
     }
 
