@@ -13,6 +13,7 @@ import NavbarComp from "./NavbarComp"
 import Inicio from "./Inicio"
 import PaginaNoticias from "./PaginaNoticias"
 import Universidades from "./Universidades"
+import PaginaCripto from "./PaginaCripto"
 
 function App() {
   return(
@@ -28,6 +29,7 @@ function App() {
                 <Route exact path='/' element={<Inicio/>}/> 
                 <Route exact path='/' element={<Inicio/>}/>
                 <Route exact path='/paginaNoticias' element={<PaginaNoticias/>}/>
+                <Route exact path='/paginaCripto' element={<PaginaCripto/>}/>
                 <Route exact path='/universidades' element={<Universidades/>}/>
                 
           </Routes> 
