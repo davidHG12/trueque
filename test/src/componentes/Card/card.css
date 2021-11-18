@@ -7,7 +7,7 @@
 .card-body {
   padding: 2rem 0 !important;
   background: linear-gradient(180deg, rgba(49,108,244,0.3603816526610645) 1%, rgba(0,0,0,0) 70%);
-  
+  border: none;
 }
 
 .card-text {
@@ -17,6 +17,7 @@
 }
 
 .overflow {
+  height: 250px;
   overflow: hidden;
 }
 
