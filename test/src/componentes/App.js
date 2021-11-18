@@ -11,6 +11,7 @@ import ForgotPassword from "./ForgotPassword"
 import UpdateProfile from "./UpdateProfile"
 import NavbarComp from "./NavbarComp"
 import Inicio from "./Inicio"
+import PaginaNoticias from "./PaginaNoticias"
 
 function App() {
   return(
@@ -23,6 +24,7 @@ function App() {
           <Routes>
                 <Route exact path='/inicio' element={<Inicio/>}/>
                 <Route exact path='/' element={<Inicio/>}/> 
+                <Route exact path='/paginaNoticias' element={<PaginaNoticias/>}/>
           </Routes> 
           </div> 
  
@@ -43,6 +45,7 @@ function App() {
           </AuthProvider>
            </Router>
           </div>
+
         
      
     

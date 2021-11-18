@@ -42,9 +42,9 @@ export default function NavbarComp() {
                 >
                     <Nav.Link as={Link} to={"/Inicio"}>Inicio</Nav.Link>
                     <Nav.Link href="#action2">Emprendimientos</Nav.Link>
-                    <Nav.Link href="#action2">Universidades</Nav.Link>
+                    <Nav.Link >Universidades</Nav.Link>
                     <NavDropdown title="Utilidades" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action3">Noticias</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() =>navigate("/paginaNoticias")}>Noticias</NavDropdown.Item>
                     <NavDropdown.Item href="#action4">Bolsa de valores</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action5">
