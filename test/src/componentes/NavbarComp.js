@@ -43,7 +43,6 @@ export default function NavbarComp({setLogin}) {
                     navbarScroll
                 >
                     <Nav.Link as={Link} to={"/Inicio"}>Inicio</Nav.Link>
-                    <Nav.Link href="#action2">Emprendimientos</Nav.Link>
                     <Nav.Link as={Link} to={"/Universidades"}>Universidades</Nav.Link>
                     <NavDropdown title="Utilidades" id="navbarScrollingDropdown">
                     <NavDropdown.Item onClick={() =>navigate("/paginaNoticias")}>Noticias</NavDropdown.Item>

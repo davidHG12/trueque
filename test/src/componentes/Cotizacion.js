@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const ResultadoDiv = styled.div`
-    color: #FFF;
+    color: color:#000000;
     font-family: Arial, Helvetica, sans-serif;
 `;
 
