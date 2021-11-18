@@ -11,6 +11,7 @@ import ForgotPassword from "./ForgotPassword"
 import UpdateProfile from "./UpdateProfile"
 import NavbarComp from "./NavbarComp"
 import Inicio from "./Inicio"
+import Universidades from "./Universidades"
 
 function App() {
   return(
@@ -22,7 +23,8 @@ function App() {
           <div> 
           <Routes>
                 <Route exact path='/inicio' element={<Inicio/>}/>
-                <Route exact path='/' element={<Inicio/>}/> 
+                <Route exact path='/' element={<Inicio/>}/>
+                <Route exact path='/universidades' element={<Universidades/>}/>
           </Routes> 
           </div> 
  
