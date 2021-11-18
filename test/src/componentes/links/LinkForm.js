@@ -132,7 +132,7 @@ const LinkForm = ({ addArticle, categorie,university  }) => {
           />
         </div>
         <div className="col">
-          <label className="form-label">Numero de telefono</label>
+          <label className="form-label">Numero de teléfono</label>
           <input
             type="number"
             name="phone"
@@ -152,7 +152,7 @@ const LinkForm = ({ addArticle, categorie,university  }) => {
             value={nameCategorie}
             required
           >
-            <option value="Selecciona una Categoria">Selecciona una Categoria</option>
+            <option value="Selecciona una Categoria">Selecciona una Categoría</option>
             {categorie.map((item) => (
               <option key={item.id} value={item.nombre}>
                 {item.nombre}
