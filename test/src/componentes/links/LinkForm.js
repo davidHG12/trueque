@@ -5,9 +5,9 @@ import { app } from "../../firebase";
 
 import "./links.css";
 
-const LinkForm = ({ addArticle, categorie }) => {
+const LinkForm = ({ addArticle, categorie,university  }) => {
   const navigate = useNavigate();
-
+  const [error, setError] = useState(false)
   const [data, setData] = useState({
     nameArticle: "",
     price: "",
@@ -15,8 +15,9 @@ const LinkForm = ({ addArticle, categorie }) => {
     imagen: "",
     email: "",
     phone: "",
-    University: "",
+    nameUniversity: "",
   });
+  const { nameArticle, price, nameCategorie, email, phone, nameUniversity, articleDescrip,imagen } = data;
 
   // Guardando data en el State
   const handelChange = (e) => {
@@ -30,6 +31,14 @@ const LinkForm = ({ addArticle, categorie }) => {
   // Enviar Data
   const onSubmit = (e) => {
     e.preventDefault();
+
+    // Valida que los campos no esten vacios
+    if(nameArticle.trim() === '' || price.trim() === '' || nameCategorie.trim() === '' || imagen.trim() === '' || email.trim() === '' || phone.trim() === '' || nameUniversity.trim === ''){
+      setError(true)
+      return
+  }
+  setError(false)
+
     addArticle(data);
 
     // Setear los inputs
@@ -39,8 +48,11 @@ const LinkForm = ({ addArticle, categorie }) => {
       nameCategorie: "",
       email: "",
       phone: "",
-      University: "",
+      nameUniversity: "",
+      articleDescrip: "",
     });
+
+
 
     navigate("/inicio");
   };
@@ -58,7 +70,6 @@ const LinkForm = ({ addArticle, categorie }) => {
     });
   };
 
-  const { nameArticle, price, nameCategorie, email, phone, University } = data;
 
   return (
     <div className="form d-flex flex-column">
@@ -71,6 +82,7 @@ const LinkForm = ({ addArticle, categorie }) => {
             className="form-control"
             onChange={handelChange}
             value={nameArticle}
+            required
           />
         </div>
         <div className="col mt-3">
@@ -80,6 +92,7 @@ const LinkForm = ({ addArticle, categorie }) => {
             type="file"
             name="imagen"
             onChange={handleFileChange}
+            required
           />
         </div>
         <div className="col mt-3">
@@ -90,8 +103,23 @@ const LinkForm = ({ addArticle, categorie }) => {
             name="price"
             onChange={handelChange}
             value={price}
+            required
           />
         </div>
+
+        <div className="col mt-3">
+          <label className="form-label">Descripción del Articulo</label>
+          <textarea
+            type="test"
+            className="form-control"
+            name="articleDescrip"
+            onChange={handelChange}
+            value={articleDescrip}
+            required
+          />
+        </div>
+
+
         <div className="col">
           <label className="form-label">Correo</label>
           <input
@@ -100,6 +128,7 @@ const LinkForm = ({ addArticle, categorie }) => {
             className="form-control"
             onChange={handelChange}
             value={email}
+            required
           />
         </div>
         <div className="col">
@@ -110,8 +139,10 @@ const LinkForm = ({ addArticle, categorie }) => {
             className="form-control"
             onChange={handelChange}
             value={phone}
+            required
           />
         </div>
+
 
         <div className="col mt-3">
           <select
@@ -119,20 +150,9 @@ const LinkForm = ({ addArticle, categorie }) => {
             className="form-select"
             onChange={handelChange}
             value={nameCategorie}
+            required
           >
-            <option value="cc">Selecciona una Universidad</option>
-            <option value="La Sabana">La Sabana</option>
-          </select>
-        </div>
-
-        <div className="col mt-3">
-          <select
-            name="University"
-            className="form-select"
-            onChange={handelChange}
-            value={University}
-          >
-            <option value="cc">Selecciona una categoria</option>
+            <option value="Selecciona una Categoria">Selecciona una Categoria</option>
             {categorie.map((item) => (
               <option key={item.id} value={item.nombre}>
                 {item.nombre}
@@ -141,6 +161,25 @@ const LinkForm = ({ addArticle, categorie }) => {
           </select>
         </div>
 
+        <div className="col mt-3">
+          <select
+            name="nameUniversity"
+            className="form-select"
+            onChange={handelChange}
+            value={nameUniversity}
+            required
+          >
+            <option value="selecciona una Universidad">Selecciona una Universidad</option>
+            {university.map((item) => (
+              <option key={item.id} value={item.nombre} >
+                {item.nombre}
+              </option>
+            ))}
+          </select>
+        </div>
+            {
+                error ? <p className="mt-4 p-2 error text-center text-danger">Todos los campos son obligatorios</p>  : null
+            }
         <button
           type="submit"
           onClick={onSubmit}

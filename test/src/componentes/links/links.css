@@ -25,3 +25,7 @@
     display: block;
     margin: auto;
 }
+
+.error{
+    border: 1px solid red;
+}

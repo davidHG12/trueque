@@ -6,10 +6,11 @@ import { Link, useNavigate } from "react-router-dom"
 import {useAuth} from '../contexto/AuthContext'
 
 
-export default function NavbarComp() {
+export default function NavbarComp({setLogin}) {
     const navigate = useNavigate()
     const [error, setError] = useState("")
     const {currentUser, logout} = useAuth()
+    setLogin(currentUser)
 
     async function handlelogout(){
         setError("")

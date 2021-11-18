@@ -5,7 +5,7 @@ import "./app.css";
 import AddArticle from "./links/AddArticle";
 import {db} from '../firebase'
 
-export default function Inicio({setInfo, loading}) {
+export default function Inicio({setInfo, loading, login}) {
 
   const [article, setArticle] = useState([]);
 
@@ -39,10 +39,9 @@ export default function Inicio({setInfo, loading}) {
             }
         </div>
       </div>
-      {/* {
-        loading ? <AddArticle /> : null
-      } */}
-      <AddArticle />
+       {
+        login ? <AddArticle /> : null
+      } 
       
     </>
   );

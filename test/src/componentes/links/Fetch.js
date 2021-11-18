@@ -5,6 +5,7 @@ import { db } from "../../firebase";
 const Fetch = () => {
 //   const [article, setArticle] = useState([]);
   const [categorie, setCateogorie] = useState([]);
+  const [university, setUniversity] = useState([]);
 
 
   // Guardar el articulo en firestore
@@ -25,15 +26,25 @@ const Fetch = () => {
     });
   };
 
-  
+  const getUniversity = () => {
+    const docs = [];
+    db.collection("university").onSnapshot((querySnpashot) => {
+      querySnpashot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setUniversity(docs);
+    });
+  };
+
 
   useEffect(() => {
     getCategorie();
+    getUniversity();
     // eslint-disable-next-line
   }, []);
   return (
     <div className="section__form d-flex justify-content-center align-items-center">
-      <LinkForm addArticle={addArticle} categorie={categorie} />
+      <LinkForm addArticle={addArticle} categorie={categorie} university={university} />
     </div>
   );
 };

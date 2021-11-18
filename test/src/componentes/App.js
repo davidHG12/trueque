@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Signup from "./Signup"
 import { Container } from "react-bootstrap"
@@ -13,24 +13,25 @@ import NavbarComp from "./NavbarComp"
 import Inicio from "./Inicio"
 import Fetch from "./links/Fetch"
 import ArticleDescrip from "./articleDescrip/ArticleDescrip"
-// import db from '../firebase'
-
 function App() {
 
   const [info, setInfo] = useState([])
-
-  
+  const [login, setLogin] = useState([])
+  console.log(login)
   return(
           <div>
           <Router>
           <AuthProvider>
-          <NavbarComp/>
+          <NavbarComp setLogin={setLogin}/>
           <div> 
           <Routes>
 
-                <Route exact path='/inicio' element={<Inicio setInfo={setInfo}  />}/>
-                <Route exact path='/' element={<Inicio setInfo={setInfo} />}/> 
-              <Route exact path="/agregar" element={<Fetch/>} />
+                <Route exact path='/inicio' element={<Inicio setInfo={setInfo} login={login}/>}/>
+                <Route exact path='/' element={<Inicio setInfo={setInfo} login={login}/>}/>
+                {
+                  login ? <Route exact path="/agregar" element={<Fetch/>} /> : null
+                }
+              
               <Route exact path="/article/:id" element={<ArticleDescrip info={info}/>} />
   
 
